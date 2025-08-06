@@ -1,44 +1,31 @@
-DragonBall Power Stats+
+# DragonBall Power Stats+
 
-Sistema modular em Python para extração, análise e modelagem de dados do universo Dragon Ball, incorporando Web Scraping avançado, RPA com Playwright, banco SQLite, análise de dados e Machine Learning.
+### Sistema modular em Python para extração, análise e modelagem de dados do universo Dragon Ball, incorporando Web Scraping avançado, RPA com Playwright, banco SQLite, análise de dados e Machine Learning.
 
-🚀 Visão Geral
+### 🚀 Visão Geral
 
 Este projeto permite:
 
-Web Scraping Avançado de personagens do Dragon Ball, com fallback automatizado usando Playwright.
+- Web Scraping Avançado de personagens do Dragon Ball, com fallback automatizado usando Playwright.
+- Armazenamento em SQLite através de ORM (SQLAlchemy).
+- Processamento e limpeza de dados com pandas e numpy.
+- Visualização de insights estatísticos com matplotlib e seaborn.
+- Machine Learning para clustering e predição de níveis de poder usando scikit-learn.
+- Estrutura orientada a objetos, modular e testável, ideal para portfólio profissional.
 
-Armazenamento em SQLite através de ORM (SQLAlchemy).
-
-Processamento e limpeza de dados com pandas e numpy.
-
-Visualização de insights estatísticos com matplotlib e seaborn.
-
-Machine Learning para clustering e predição de níveis de poder usando scikit-learn.
-
-Estrutura orientada a objetos, modular e testável, ideal para portfólio profissional.
-
-📦 Tecnologias e Dependências
+### 📦 Tecnologias e Dependências
 
 Python 3.12+
-
 Web Scraping: aiohttp, requests, beautifulsoup4, lxml
-
 RPA: playwright (Chromium)
-
 Banco de Dados: sqlite3, SQLAlchemy
-
 Análise de Dados: pandas, numpy
-
 Visualização: matplotlib, seaborn
-
 Machine Learning: scikit-learn
-
 Testes: pytest
-
 Versionamento: Git (branches main, dev)
 
-🛠️ Instalação
+### 🛠️ Instalação
 
 Clone este repositório:
 
@@ -56,17 +43,14 @@ Instale as dependências:
 pip install -r requirements.txt
 playwright install
 
-⚙️ Configuração
+### ⚙️ Configuração
 
 Verifique o arquivo dragonball/config.py para ajustar parâmetros como:
-
 BASE_URL: URL da wiki
-
 DB_PATH: caminho do arquivo SQLite
-
 HEADLESS: modo headless do Playwright
 
-📁 Estrutura do Projeto
+### 📁 Estrutura do Projeto
 
 dragonball_power_stats_plus/
 ├── data/                 # Arquivos de banco e dumps brutos
@@ -97,24 +81,18 @@ dragonball_power_stats_plus/
 ├── README.md             # Documentação principal
 └── .gitignore            # Arquivos a serem ignorados pelo Git
 
-🚀 Uso Rápido
+### 🚀 Uso Rápido
 
 Extrair e Popular Banco
-
 python scripts/run_all.py --stage=db
-
 Analisar e Gerar Gráficos
-
 python scripts/run_all.py --stage=analysis
-
 Executar Notebooks Interativos
-
 jupyter notebook notebooks/dragonball_analysis.ipynb
 
-🧪 Testes
+### 🧪 Testes
 
 Execute todos os testes com:
-
 pytest --maxfail=1 --disable-warnings -q
 
 
