@@ -15,44 +15,50 @@ Este projeto permite:
 
 ### 📦 Tecnologias e Dependências
 
-Python 3.12+
-Web Scraping: aiohttp, requests, beautifulsoup4, lxml
-RPA: playwright (Chromium)
-Banco de Dados: sqlite3, SQLAlchemy
-Análise de Dados: pandas, numpy
-Visualização: matplotlib, seaborn
-Machine Learning: scikit-learn
-Testes: pytest
-Versionamento: Git (branches main, dev)
+- Python 3.12+
+- Web Scraping: aiohttp, requests, beautifulsoup4, lxml
+- RPA: playwright (Chromium)
+- Banco de Dados: sqlite3, SQLAlchemy
+- Análise de Dados: pandas, numpy
+- Visualização: matplotlib, seaborn
+- Machine Learning: scikit-learn
+- Testes: pytest
+- Versionamento: Git (branches main, dev)
 
 ### 🛠️ Instalação
 
 Clone este repositório:
 
-git clone https://github.com/seu-usuario/dragonball_power_stats_plus.git
-cd dragonball_power_stats_plus
+- git clone https://github.com/seu-usuario/dragonball_power_stats_plus.git
 
-Crie e ative um ambiente virtual (recomendado):
+- cd dragonball_power_stats_plus
 
+- Crie e ative um ambiente virtual (recomendado):
+
+ ```python
 python -m venv venv
 source venv/bin/activate   # Linux/macOS
 venv\\Scripts\\activate  # Windows
+ ```
 
-Instale as dependências:
-
+- Instale as dependências:
+  
+ ```bash
 pip install -r requirements.txt
 playwright install
+ ```
 
 ### ⚙️ Configuração
 
-Verifique o arquivo dragonball/config.py para ajustar parâmetros como:
-BASE_URL: URL da wiki
-DB_PATH: caminho do arquivo SQLite
-HEADLESS: modo headless do Playwright
+- Verifique o arquivo dragonball/config.py para ajustar parâmetros como:
+- BASE_URL: URL da wiki
+- DB_PATH: caminho do arquivo SQLite
+- HEADLESS: modo headless do Playwright
 
 ### 📁 Estrutura do Projeto
 
 dragonball_power_stats_plus/
+```bash
 ├── data/                 # Arquivos de banco e dumps brutos
 │   └── dragonball.db     # SQLite database
 │
@@ -79,21 +85,19 @@ dragonball_power_stats_plus/
 │
 ├── requirements.txt      # Dependências do projeto
 ├── README.md             # Documentação principal
-└── .gitignore            # Arquivos a serem ignorados pelo Git
-
+└── .gitignore            # Arquivos a serem ignorados pelo Git 
+```
 ### 🚀 Uso Rápido
 
-Extrair e Popular Banco
-python scripts/run_all.py --stage=db
-Analisar e Gerar Gráficos
-python scripts/run_all.py --stage=analysis
-Executar Notebooks Interativos
-jupyter notebook notebooks/dragonball_analysis.ipynb
+- Extrair e Popular Banco
+- python scripts/run_all.py --stage=db
+- Analisar e Gerar Gráficos
+- python scripts/run_all.py --stage=analysis
+- Executar Notebooks Interativos
+- jupyter notebook notebooks/dragonball_analysis.ipynb
 
 ### 🧪 Testes
 
-Execute todos os testes com:
-pytest --maxfail=1 --disable-warnings -q
+- Execute todos os testes com:
+- pytest --maxfail=1 --disable-warnings -q
 
-
-Aguarde revisão e merge.
