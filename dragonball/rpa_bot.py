@@ -10,11 +10,12 @@ import string
 
 class Bot():
     def __init__(self):
+        characters_url = "wiki/Category:Characters?from="
         for letra in string.ascii_uppercase:
             with sync_playwright() as p:
                 navegador = p.chromium.launch(headless=True)
                 pagina = navegador.new_page()
-                pagina.goto(self.url(letra))
+                pagina.goto(self.url(characters_url, letra))
                 soup = BeautifulSoup(pagina.content(), "html.parser")
                 nomes = soup.find_all("a", class_="category-page__member-link")
                 
@@ -24,7 +25,10 @@ class Bot():
                         # Nomes
                         print(nome.text)
                         # Links 
-                        print(nome.get("href"))
+                        link_character = nome.get("href")
+                        pagina.goto(self.url(link_character, ""))
+                        #soup = BeautifulSoup(pagina.content(), "html.parser")
+                        
                     else:
                         pass
 
@@ -33,10 +37,11 @@ class Bot():
         # Extrair os Nomes e Links por página
         # Extrair Técnicas e Saga por Nome
 
-                
 
-    def url(self, letter):
-        base = f"https://dragonball.fandom.com/wiki/Category:Characters?from={letter}"
+
+
+    def url(self, context, letter):
+        base = f"https://dragonball.fandom.com/{context}{letter}"
         return base
 
-iniciar = Bot()
+iniciar = Bot() 
