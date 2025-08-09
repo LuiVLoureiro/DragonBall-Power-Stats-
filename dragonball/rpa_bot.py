@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 import string
 
@@ -12,9 +12,19 @@ class Bot():
     def __init__(self):
         for letra in string.ascii_uppercase:
             with sync_playwright() as p:
-                navegador = p.chromium.launch(headless=False)
+                navegador = p.chromium.launch(headless=True)
                 pagina = navegador.new_page()
                 pagina.goto(self.url(letra))
+                soup = BeautifulSoup(pagina.content(), "html.parser")
+                nomes = soup.find_all("a", class_="category-page__member-link")
+                for nome in nomes:
+                    print(nome.text)
+
+
+        
+        # Extrair os Nomes e Links por página
+        # Extrair Técnicas e Saga por Nome
+
                 
 
     def url(self, letter):
