@@ -17,8 +17,16 @@ class Bot():
                 pagina.goto(self.url(letra))
                 soup = BeautifulSoup(pagina.content(), "html.parser")
                 nomes = soup.find_all("a", class_="category-page__member-link")
-                for nome in nomes:
-                    print(nome.text)
+                
+                for nome in nomes: 
+                    # Tratamento dos Nomes
+                    if "Category" not in nome.text[0:9]:
+                        # Nomes
+                        print(nome.text)
+                        # Links 
+                        print(nome.get("href"))
+                    else:
+                        pass
 
 
         
