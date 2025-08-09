@@ -2,11 +2,11 @@ from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 import string
 
-# Personagem
-# Nome
-# Raça
-# Técnicas
-# Saga
+# Personagem [x]
+# Nome [x]
+# Raça [x]
+# Técnicas []
+# Saga []
 
 class Bot():
     def __init__(self):
@@ -27,7 +27,11 @@ class Bot():
                         # Links 
                         link_character = nome.get("href")
                         pagina.goto(self.url(link_character, ""))
-                        #soup = BeautifulSoup(pagina.content(), "html.parser")
+                        soup = BeautifulSoup(pagina.content(), "html.parser")
+                        # Raça
+                        raça = soup.find_all("div", {"data-source": "Race"})
+                        for i in raça:
+                            raça = i.find("div", class_="pi-data-value pi-font").text
                         
                     else:
                         pass
