@@ -5,15 +5,22 @@ import string
 # Personagem [x]
 # Nome [x]
 # Raça [x]
-# Técnicas []
-# Saga []
+# Técnicas [x]
+# Saga [x]
 
 class Bot():
     def __init__(self):
+        # Extrair os Nomes e Links por página
+        # self.extrair_personagens()
+        # Extrair Técnicas e Saga por Nome
+        # self.extrair_tecnicas()
+        pass
+
+    def extrair_personagens(self):
         characters_url = "wiki/Category:Characters?from="
         for letra in string.ascii_uppercase:
             with sync_playwright() as p:
-                navegador = p.chromium.launch(headless=True)
+                navegador = p.chromium.launch(headless=False)
                 pagina = navegador.new_page()
                 pagina.goto(self.url(characters_url, letra))
                 soup = BeautifulSoup(pagina.content(), "html.parser")
@@ -33,15 +40,24 @@ class Bot():
                         for i in raça:
                             raça = i.find("div", class_="pi-data-value pi-font").text
                         
+                        # Técnicas
+                        # É necessário fazer uma comparação com as técnicas da database para validar a técnica
+                        tecnicas = soup.find_all()
+                        
                     else:
                         pass
 
-
-        
-        # Extrair os Nomes e Links por página
-        # Extrair Técnicas e Saga por Nome
-
-
+    def extrair_tecnicas(self):
+        tecnicas_url = "wiki/Category:Techniques?from="
+        for letra in string.ascii_uppercase:
+            with sync_playwright() as p:
+                navegador = p.chromium.launch(headless=False)
+                pagina = navegador.new_page()
+                pagina.goto(self.url(tecnicas_url, letra))
+                soup = BeautifulSoup(pagina.content(), "html.parser")
+                nomes = soup.find_all("a", class_="category-page__member-link")
+                for nome in nomes:
+                    print(nome.text)
 
 
     def url(self, context, letter):
