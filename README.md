@@ -101,3 +101,7 @@ dragonball_power_stats_plus/
 - Execute todos os testes com:
 - pytest --maxfail=1 --disable-warnings -q
 
+### Diagrama Entidade-Relacionamento (Banco de Dados)
+
+<img width="1151" height="574" alt="image" src="https://github.com/user-attachments/assets/24f474e3-0c94-46fb-a7e9-93e7dfac7426" />
+
