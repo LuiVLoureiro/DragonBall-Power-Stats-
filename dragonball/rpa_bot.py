@@ -6,15 +6,17 @@ import string
 # Nome [x]
 # Raça [x]
 # Técnicas [x]
-# Saga [x]
+# Saga []
 
 class Bot():
     def __init__(self):
         # Extrair os Nomes e Links por página
         # self.extrair_personagens()
-        # Extrair Técnicas e Saga por Nome
+        # Extrair Todas as Técnicas
         # self.extrair_tecnicas()
-        pass
+        # Extrair Todas as Raças
+        # self.extrair_sagas()
+        #pass
 
     def extrair_personagens(self):
         characters_url = "wiki/Category:Characters?from="
@@ -46,6 +48,21 @@ class Bot():
                         
                     else:
                         pass
+    
+    def extrair_sagas(self):
+        sagas_url = "wiki/List_of_Sagas"
+        with sync_playwright() as p:
+            navegador = p.chromium.launch(headless=False)
+            pagina = navegador.new_page()
+            pagina.goto(self.url(sagas_url, ""))
+            soup = BeautifulSoup(pagina.content(), "html.parser")
+            sagas = soup.find_all("th", {"style": "background:#EE6C17; color:#ffffff"})
+            for saga in sagas:
+                saga = saga.text.strip()
+                if saga not in ["Manga", "Anime"]:
+                    print(saga)
+                else:
+                    pass
 
     def extrair_tecnicas(self):
         tecnicas_url = "wiki/Category:Techniques?from="
